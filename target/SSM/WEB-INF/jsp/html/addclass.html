@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+
+    <script src="../js/jquery-3.3.1.min.js"></script>
+</head>
+<style>
+
+    .pclass{
+        color: blue;
+    }
+
+    #div1{
+        background: antiquewhite;
+        border: 1px solid #ffffff;
+        height: 300px;
+        width: 200px;
+        padding: 1px;
+    }
+
+    
+</style>
+<body>
+
+<!--<p>p标签</p>-->
+
+<a>点击浏览百度网页</a>
+
+<p name="点击浏览谷歌网页"></p>
+
+<div id="div1"></div>
+<script>
+    $(function () {
+       // $("p").addClass("pclass")
+        $("a").attr("href","http://www.baidu.com")
+        var name1 = $("p").attr("name")
+        $("div").text(name1)
+    })
+</script>
+</body>
+</html>

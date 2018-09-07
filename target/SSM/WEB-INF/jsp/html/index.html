@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<script>
+    var xhr = new XMLHttpRequest()
+    xhr.open("GET", "form.html")
+    xhr.send()
+    xhr.onreadystatechange = function () {
+         if(this.readyState !==4 ) return
+         console.log(this.responseText)
+    }
+    xhr.addEventListener('readystatechange', function () {
+        switch (this.readyState) {
+            case 2:
+                //2表示已经接收了报文头  可以获取报文头
+                console.log(this.getResponseHeader('server'))
+                console.log(this.readyState)
+                console.log(this.status)
+                console.log(this.statusText)
+                break
+            case 3:
+                //3表示正在下载报文
+                console.log(this.readyState)
+                console.log(this.responseText)//此时获取报文有可能数据不完整
+                console.log(this.status)
+                console.log(this.statusText)
+                break
+            case 4:
+                //4表示已经接收了报文
+                console.log(this.readyState)
+                console.log(this.responseText)//可以获取报文了
+                console.log(this.status)
+                console.log(this.statusText)
+                break
+        }
+    })
+</script>
+</body>
+</html>

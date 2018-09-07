@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+
+    <script src="../js/jquery-3.3.1.min.js"></script>
+</head>
+<body>
+<div>元素1</div>
+<div>元素2</div>
+<div>元素3</div>
+
+<script>
+
+    var div1 = document.getElementsByTagName('div')
+    $div1 = $(div1)
+    var $div = $div1.first()
+    $div.css('color', 'blue')
+
+</script>
+</body>
+</html>

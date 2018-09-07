@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="en" xmlns="http://www.w3.org/1999/html">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <link rel="stylesheet" type="text/css" href="css/show_time.css"/>
+    <link rel="stylesheet" type="text/css" href="css/form_table.css"/>
+    <script type="text/javascript" src="js/jquery-3.3.1.min.js"></script>
+    <script>
+        function  getDateAndTimeAndSecond() {
+            var years, months,days,hours,minutes,seconds;
+            var intYears,intMonths,intDays,intHours, intMinutes, intSeconds;
+            var today;
+            today = new Date();
+            intYears = today.getFullYear();
+            intMonths = today.getMonth() + 1;
+            intDays = today.getDate();
+            intHours = today.getHours();
+            intMinutes = today.getMinutes();
+            intSeconds = today.getSeconds();
+            years = intYears + "-";
+            if(intMonths < 10)
+            {
+                months = "0" + intMonths + "-";
+            }
+            else
+            {
+                months = intMonths + "-";
+            }
+            if(intDays < 10)
+            {
+                days = "0" + intDays + " ";
+            }
+            else
+            {
+                days = intDays + " ";
+            }
+            if(intHours == 0)
+            {
+                hours = "00:"
+            }
+            else if (intHours < 10)
+            {
+                hours = "0" + intHours + ":";
+            }
+            else
+            {
+                hours = intHours + ":";
+            }
+            if(intMinutes < 10)
+            {
+                minutes = "0" + intMinutes + ":";
+            }
+            else
+            {
+                minutes = intMinutes + ":";
+            }
+            if (intSeconds < 10)
+            {
+                seconds = "0" + intSeconds + " ";
+            }
+            else
+            {
+                seconds = intSeconds + " ";
+            }
+           var timeString = years + months + days + hours + minutes + seconds;
+            Clock.innerHTML = timeString;
+            window.setTimeout("getDateAndTimeAndSecond();", 1000);
+        }
+        window.onload = getDateAndTimeAndSecond;
+    </script>
+</head>
+<body leftMargin=0 topMargin=0 marginwidth="0" marginheight="0" bgcolor="#f0f8ff">
+<table cellSpacing=0 cellPadding=0 width="100%" border=0>
+    <tr bgColor=#73a3d4 height=40>
+        <td noWrap align=right width=209 ><span id="Clock"></span></td>
+    </tr>
+</table>
+<br/>
+<br/>
+<br/>
+<br/>
+<br/>
+<br/>
+<br/>
+<div id="login">
+    <div id="form">
+        <form action="index.html" method="post">
+
+        </form>
+    </div>
+</div>
+</body>
+</html>

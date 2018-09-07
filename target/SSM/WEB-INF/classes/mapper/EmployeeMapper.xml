@@ -1,0 +1,141 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.ibs.clearing.org.mapper.EmployeeMapper">
+  <resultMap id="BaseResultMap" type="com.ibs.clearing.org.bean.Employee">
+    <id column="id" jdbcType="INTEGER" property="id" />
+    <result column="uuid" jdbcType="VARCHAR" property="uuid" />
+    <result column="employeeId" jdbcType="VARCHAR" property="employeeId" />
+    <result column="employeeName" jdbcType="VARCHAR" property="employeeName" />
+    <result column="employeeSex" jdbcType="INTEGER" property="employeeSex" />
+    <result column="employeePosition" jdbcType="VARCHAR" property="employeePosition" />
+    <result column="employeeSalary" jdbcType="DECIMAL" property="employeeSalary" />
+    <result column="employeeEmail" jdbcType="VARCHAR" property="employeeEmail" />
+    <result column="employeeAddres" jdbcType="VARCHAR" property="employeeAddres"/>
+  </resultMap>
+  <sql id="Base_Column_List">
+    id, uuid, employeeId, employeeName, employeeSex, employeePosition, employeeSalary, 
+    employeeEmail, employeeAddres
+  </sql>
+  <select id="selectByPrimaryKey" parameterType="java.lang.Integer" resultMap="BaseResultMap">
+    select 
+           id, uuid, employeeId, employeeName, employeeSex, employeePosition, employeeSalary, 
+    	   employeeEmail, employeeAddres
+							    from employee_table
+							    where id = #{id,jdbcType=INTEGER}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.Integer">
+    delete from employee_table
+    where id = #{id,jdbcType=INTEGER}
+  </delete>
+  <insert id="insert" parameterType="com.ibs.clearing.org.bean.Employee">
+    insert into employee_table (id, uuid, employeeId, 
+      employeeName, employeeSex, employeePosition, 
+      employeeSalary, employeeEmail, employeeAddres)
+    values (#{id,jdbcType=INTEGER}, #{uuid,jdbcType=VARCHAR}, #{employeeId,jdbcType=VARCHAR}, 
+      #{employeeName,jdbcType=VARCHAR}, #{employeeSex,jdbcType=INTEGER}, #{employeePosition,jdbcType=VARCHAR}, 
+      #{employeeSalary,jdbcType=DECIMAL}, #{employeeEmail,jdbcType=VARCHAR}, #{employeeAddres,jdbcType=VARCHAR})
+  </insert>
+  <insert id="insertSelective" parameterType="com.ibs.clearing.org.bean.Employee">
+    insert into employee_table
+    <trim prefix="(" suffix=")" suffixOverrides=",">
+      <if test="id != null">
+        id,
+      </if>
+      <if test="uuid != null">
+        uuid,
+      </if>
+      <if test="employeeId != null">
+        employeeId,
+      </if>
+      <if test="employeeName != null">
+        employeeName,
+      </if>
+      <if test="employeeSex != null">
+        employeeSex,
+      </if>
+      <if test="employeePosition != null">
+        employeePosition,
+      </if>
+      <if test="employeeSalary != null">
+        employeeSalary,
+      </if>
+      <if test="employeeEmail != null">
+        employeeEmail,
+      </if>
+      <if test="employeeAddres != null">
+        employeeAddres,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides=",">
+      <if test="id != null">
+        #{id,jdbcType=INTEGER},
+      </if>
+      <if test="uuid != null">
+        #{uuid,jdbcType=VARCHAR},
+      </if>
+      <if test="employeeId != null">
+        #{employeeId,jdbcType=VARCHAR},
+      </if>
+      <if test="employeeName != null">
+        #{employeeName,jdbcType=VARCHAR},
+      </if>
+      <if test="employeeSex != null">
+        #{employeeSex,jdbcType=INTEGER},
+      </if>
+      <if test="employeePosition != null">
+        #{employeePosition,jdbcType=VARCHAR},
+      </if>
+      <if test="employeeSalary != null">
+        #{employeeSalary,jdbcType=DECIMAL},
+      </if>
+      <if test="employeeEmail != null">
+        #{employeeEmail,jdbcType=VARCHAR},
+      </if>
+      <if test="employeeAddres != null">
+        #{employeeAddres,jdbcType=VARCHAR},
+      </if>
+    </trim>
+  </insert>
+  <update id="updateByPrimaryKeySelective" parameterType="com.ibs.clearing.org.bean.Employee">
+    update employee_table
+    <set>
+      <if test="uuid != null">
+        uuid = #{uuid,jdbcType=VARCHAR},
+      </if>
+      <if test="employeeId != null">
+        employeeId = #{employeeId,jdbcType=VARCHAR},
+      </if>
+      <if test="employeeName != null">
+        employeeName = #{employeeName,jdbcType=VARCHAR},
+      </if>
+      <if test="employeeSex != null">
+        employeeSex = #{employeeSex,jdbcType=INTEGER},
+      </if>
+      <if test="employeePosition != null">
+        employeePosition = #{employeePosition,jdbcType=VARCHAR},
+      </if>
+      <if test="employeeSalary != null">
+        employeeSalary = #{employeeSalary,jdbcType=DECIMAL},
+      </if>
+      <if test="employeeEmail != null">
+        employeeEmail = #{employeeEmail,jdbcType=VARCHAR},
+      </if>
+      <if test="employeeAddres != null">
+        employeeAddres = #{employeeAddres,jdbcType=VARCHAR},
+      </if>
+    </set>
+    where id = #{id,jdbcType=INTEGER}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="com.ibs.clearing.org.bean.Employee">
+    update employee_table
+    set uuid = #{uuid,jdbcType=VARCHAR},
+      employeeId = #{employeeId,jdbcType=VARCHAR},
+      employeeName = #{employeeName,jdbcType=VARCHAR},
+      employeeSex = #{employeeSex,jdbcType=INTEGER},
+      employeePosition = #{employeePosition,jdbcType=VARCHAR},
+      employeeSalary = #{employeeSalary,jdbcType=DECIMAL},
+      employeeEmail = #{employeeEmail,jdbcType=VARCHAR},
+      employeeAddres = #{employeeAddres,jdbcType=VARCHAR}
+    where id = #{id,jdbcType=INTEGER}
+  </update>
+</mapper>

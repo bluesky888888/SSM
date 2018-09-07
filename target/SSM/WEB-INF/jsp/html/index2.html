@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <script type="text/javascript" src="../js/jquery-3.3.1.min.js"></script>
+</head>
+<body>
+
+<!--<div>-->
+    <!--<span></span>-->
+    <!--<p id="p"></p>-->
+    <!--<label></label>-->
+<!--</div>-->
+<input name="man-news" id="man-news"/><br/>
+<input name="milkman"/><br/>
+<input name="new-letterman" id="lettterman"/><br/>
+<input name="newmilk">
+
+<!--<script>-->
+    <!--$(function () {-->
+        <!--// $("div *").html("我们是一家人")-->
+        <!--$("#p").html("我们是一家人")-->
+    <!--})-->
+<!--</script>-->
+
+<script>
+    $(function () {
+        $("input[id][name$='man']").val("only this man")
+    })
+</script>
+
+</body>
+</html>
